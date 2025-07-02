@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export PRETTIER_EXPERIMENTAL_CLI=1
+
+pnpm lint-staged

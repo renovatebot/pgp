@@ -1,0 +1,29 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "xmlWhitespaceSensitivity": "preserve",
+  "xmlQuoteAttributes": "double",
+  "overrides": [
+    {
+      "files": [
+        "*.runsettings",
+        "*.spdata",
+        "*.resx",
+        "*.config",
+        "*.webpart",
+        "*.feature",
+        "*.package"
+      ],
+      "options": {
+        "parser": "xml"
+      }
+    },
+    {
+      "files": ["**/*.{ts,tsx}"],
+      "options": {
+        "parser": "typescript"
+      }
+    }
+  ],
+  "plugins": ["prettier-plugin-packagejson"]
+}

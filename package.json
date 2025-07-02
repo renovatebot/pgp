@@ -1,0 +1,40 @@
+{
+  "name": "@renovatebot/pgp",
+  "version": "0.0.1",
+  "description": "PGP library for renovate",
+  "keywords": [
+    "renovate",
+    "pgp"
+  ],
+  "license": "Apache-2.0",
+  "author": "Michael Kriese <michael.kriese@gmx.de>",
+  "type": "module",
+  "files": [
+    "README.md",
+    "LICENSE",
+    "index.d.ts",
+    "dist/"
+  ],
+  "scripts": {
+    "build": "./gradlew build",
+    "prepare": "husky",
+    "prettier": "PRETTIER_EXPERIMENTAL_CLI=1 prettier -c -u .",
+    "prettier:fix": "PRETTIER_EXPERIMENTAL_CLI=1 prettier -w -u .",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.35",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "markdownlint-cli2": "^0.18.1",
+    "prettier": "3.6.2",
+    "prettier-plugin-packagejson": "2.5.17",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "packageManager": "pnpm@10.11.0",
+  "engines": {
+    "node": "^22.11.0",
+    "pnpm": "^10.0.0"
+  }
+}

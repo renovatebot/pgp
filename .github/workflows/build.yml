@@ -1,0 +1,136 @@
+name: build
+
+on: push
+
+env:
+  HUSKY: 0
+
+permissions:
+  contents: read
+
+jobs:
+  setup:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          show-progress: false
+
+      - name: 📥 Setup Node.js
+        uses: ./.github/actions/setup-node
+        with:
+          save-cache: true
+
+  lint:
+    runs-on: ubuntu-22.04
+    needs: setup
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      checks: write
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          show-progress: false
+
+      - name: 📥 Setup Node.js
+        uses: ./.github/actions/setup-node
+
+      - name: lint
+        run: |
+          # pnpm eslint -f gha
+          pnpm prettier
+          # pnpm lint:types
+
+      - name: shellcheck
+        if: ${{ github.event_name != 'merge_group' }}
+        uses: reviewdog/action-shellcheck@5ebd09ddbe2ebb471646ce234c6c8dd18663ca7c # v1.30.0
+        with:
+          fail_on_error: true
+          reporter: github-pr-annotations
+          filter_mode: nofilter
+          path: |
+            src
+            .husky
+          pattern: |
+            *.sh
+            *.bats
+          check_all_files_with_shebangs: 'true'
+
+  build:
+    runs-on: ubuntu-22.04
+    needs: setup
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          show-progress: false
+
+      - name: 📥 Setup Node.js
+        uses: ./.github/actions/setup-node
+
+      - name: build
+        run: pnpm build
+
+      - name: upload dist
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: dist
+          path: |
+            dist/
+
+  test:
+    runs-on: ubuntu-22.04
+    needs:
+      - setup
+      - build
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          show-progress: false
+
+      - name: 📥 Setup Node.js
+        uses: ./.github/actions/setup-node
+
+      - name: fetch dist
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: dist
+          path: dist
+
+      - name: vitest
+        run: pnpm test
+
+      - name: Codecov
+        if: github.event_name != 'merge_group'
+        uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  # Catch-all required check for test matrix
+  test-success:
+    needs:
+      - lint
+      - build
+      - test
+    runs-on: ubuntu-22.04
+    timeout-minutes: 1
+    if: always()
+    steps:
+      - name: Fail for failed or cancelled lint tests
+        if: |
+          needs.lint.result == 'failure' ||
+          needs.lint.result == 'cancelled'
+        run: exit 1
+
+      - name: Fail for failed or cancelled test tests
+        if: |
+          needs.test.result == 'failure' ||
+          needs.test.result == 'skipped'
+        run: exit 1

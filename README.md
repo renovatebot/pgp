@@ -1,2 +1,3 @@
 # pgp
-Renovate PGP library
+
+Renovate PGP library to decrypt pgp encrypted secrets.
