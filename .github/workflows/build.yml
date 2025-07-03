@@ -90,7 +90,10 @@ jobs:
           cache: true
           cache-dependency-path: '**/packages.lock.json'
 
-      - run: dotnet restore --locked-mode
+      - name: Restore dotnet packages
+        run: |
+          dotnet workload restore
+          dotnet restore --locked-mode
 
       - name: build
         run: pnpm build
