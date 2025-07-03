@@ -149,3 +149,4 @@ build
 obj/
 bin/
 artifacts/
+.nuget/packages/
