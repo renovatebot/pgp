@@ -1,1 +1,1 @@
-export { decrypt } from './dist/pgp.js';
+export { decrypt } from './dist/lib.js';

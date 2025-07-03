@@ -6,33 +6,8 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 
-import org.teavm.gradle.api.JSModuleType
-
-plugins {
-  id("java")
-  alias(libs.plugins.teavm)
-}
-
-repositories {
-  mavenCentral()
-}
-
-dependencies {
-  implementation(libs.pgpainless.core) {
-    exclude(group = "org.slf4j", module = "slf4j-api")
+allprojects {
+  repositories {
+    mavenCentral()
   }
-  teavm(teavm.libs.jsoApis)
 }
-
-teavm.js {
-  mainClass = "com.github.renovatebot.Main"
-  // addedToWebApp = false
-  moduleType = JSModuleType.ES2015
-  obfuscated = false
-  outputDir = file("dist")
-  relativePathInOutputDir = ""
-  outOfProcess = true
-}
-
-
-tasks.named("build") { finalizedBy("generateJavaScript") }

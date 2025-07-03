@@ -2,11 +2,13 @@
 junit-jupiter = "5.11.3"
 pgpainless = "1.7.6"
 slf4j = "2.0.17"
+teavm = "0.12.2"
 
 [libraries]
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
 pgpainless-core = { module = "org.pgpainless:pgpainless-core", version.ref = "pgpainless" }
-slf4j-nop = { module = "org.slf4j:slf4j-nop", version.ref = "slf4j" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+teavm-core = { module = "org.teavm:teavm-core", version.ref = "teavm" }
 
 [plugins]
-teavm = { id = "org.teavm", version = "0.12.2" }
+teavm = { id = "org.teavm", version.ref = "teavm" }
