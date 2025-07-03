@@ -4,5 +4,6 @@
     <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <RestoreLockedMode Condition="'$(CI)' == 'true'">true</RestoreLockedMode>
+    <SolutionDir>$(MSBuildThisFileDirectory)/</SolutionDir>
   </PropertyGroup>
 </Project>

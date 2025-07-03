@@ -5,9 +5,10 @@
     <OutputType>exe</OutputType>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>full</TrimMode>
     <WasmMainJSPath>main.mjs</WasmMainJSPath>
+    <WasmAppDir>$([MSBuild]::NormalizePath('$(SolutionDir)dist/wasm'))</WasmAppDir>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.6.1" />
   </ItemGroup>

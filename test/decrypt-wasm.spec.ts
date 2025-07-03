@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs/promises';
-import { decrypt } from '../artifacts/bin/lib/debug_browser-wasm/AppBundle/main.mjs';
+import { decrypt } from '../dist/wasm/main.mjs';
 
 describe('decrypt-wasm', () => {
   it('works', async () => {
