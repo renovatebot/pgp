@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.JavaScript;
@@ -8,11 +7,9 @@ using Org.BouncyCastle.Utilities.IO;
 
 public partial class Program
 {
-  public static void Main(string[] args)
+  public static void Main()
   {
-    // This is a placeholder for the main entry point of the application.
-    // The actual implementation will depend on the specific requirements of the project.
-    Console.WriteLine("Hello, World!");
+    // Dummy to make compiler happy
   }
 
   [JSExport]
@@ -71,12 +68,12 @@ public partial class Program
     }
     else
     {
-      throw new PgpException("message is not encoded correctly.");
+      throw new PgpException("Message is not encoded correctly.");
     }
 
     if (encryptedData.IsIntegrityProtected() && !encryptedData.Verify())
     {
-      throw new Exception("message failed integrity check!");
+      throw new PgpException("Message failed integrity check!");
     }
     return result;
   }
