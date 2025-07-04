@@ -2,7 +2,7 @@ import { decrypt } from '../..';
 import { describe, expect, it } from 'vitest';
 import { fixMessage, readFixture } from '../util';
 
-describe('decrypt', () => {
+describe('teavm/decrypt-js', () => {
   it('armor error', async () => {
     const key = await readFixture(`private-pgp.pem`);
 

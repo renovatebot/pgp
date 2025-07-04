@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { decrypt } from '../../dist/dotnet/main.mjs';
 import { fixMessage, readFixture } from '../util';
 
-describe('decrypt-dotnet-wasm', () => {
+describe('dotnet/decrypt', () => {
   it('armor error', async () => {
     const key = await readFixture(`private-pgp.pem`);
 
