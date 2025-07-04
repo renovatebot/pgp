@@ -11,6 +11,7 @@ junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jun
 pgpainless-core = { module = "org.pgpainless:pgpainless-core", version.ref = "pgpainless" }
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 teavm-core = { module = "org.teavm:teavm-core", version.ref = "teavm" }
+teavm-jso-apis = { module = "org.teavm:teavm-jso-apis", version.ref = "teavm" }
 
 [plugins]
 teavm = { id = "org.teavm", version.ref = "teavm" }
