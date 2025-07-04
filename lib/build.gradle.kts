@@ -25,7 +25,7 @@ teavm.js {
   moduleType = JSModuleType.ES2015
   obfuscated = true
   outputDir = file("../dist")
-  relativePathInOutputDir = ""
+  relativePathInOutputDir = "teavm"
   // outOfProcess = true
   // sourceMap = true
 }
@@ -33,7 +33,7 @@ teavm.js {
 teavm.wasi {
   mainClass = "com.github.renovatebot.Main"
   outputDir = file("../dist")
-  relativePathInOutputDir = ""
+  relativePathInOutputDir = "teavm"
   // outOfProcess = true
   // sourceMap = true
 }
@@ -41,7 +41,7 @@ teavm.wasi {
 teavm.wasm {
   mainClass = "com.github.renovatebot.Main"
   outputDir = file("../dist")
-  relativePathInOutputDir = ""
+  relativePathInOutputDir = "teavm"
   // outOfProcess = true
   // sourceMap = true
 }
@@ -49,7 +49,7 @@ teavm.wasm {
 teavm.wasmGC {
   mainClass = "com.github.renovatebot.Main"
   outputDir = file("../dist")
-  relativePathInOutputDir = "wasm"
+  relativePathInOutputDir = "teavm"
   // outOfProcess = true
   // sourceMap = true
 }

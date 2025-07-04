@@ -7,7 +7,7 @@
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>full</TrimMode>
     <WasmMainJSPath>main.mjs</WasmMainJSPath>
-    <WasmAppDir>$([MSBuild]::NormalizePath('$(SolutionDir)dist/dotnet-wasm'))</WasmAppDir>
+    <WasmAppDir>$([MSBuild]::NormalizePath('$(SolutionDir)dist/dotnet'))</WasmAppDir>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.6.1" />

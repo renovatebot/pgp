@@ -1,1 +1,1 @@
-export { decrypt } from './dist/lib.js';
+export { decrypt } from './dist/teavm/lib.js';
