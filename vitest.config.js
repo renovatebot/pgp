@@ -29,7 +29,7 @@ export default defineConfig(() => {
           ? ['text-summary', 'cobertura']
           : ['text-summary', 'html', 'cobertura'],
         enabled: ci ? true : undefined,
-        include: ['index.js', 'dist/**/*.js'],
+        include: ['index.js'],
       },
     },
   };
