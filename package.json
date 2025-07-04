@@ -16,7 +16,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "./gradlew build",
+    "build": "./gradlew build && dotnet publish dotnet",
     "prepare": "husky",
     "prettier": "PRETTIER_EXPERIMENTAL_CLI=1 prettier -c -u .",
     "prettier:fix": "PRETTIER_EXPERIMENTAL_CLI=1 prettier -w -u .",

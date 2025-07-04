@@ -65,6 +65,9 @@ jobs:
     needs: setup
     timeout-minutes: 15
 
+    env:
+      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
@@ -79,6 +82,18 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
           cache: 'gradle'
+
+      - name: 📥 Setup Dotnet
+        uses: actions/setup-dotnet@3951f0dfe7a07e2313ec93c75700083e2005cbab # v4.3.0
+        with:
+          global-json-file: global.json
+          cache: true
+          cache-dependency-path: '**/packages.lock.json'
+
+      - name: Restore dotnet packages
+        run: |
+          dotnet workload restore
+          dotnet restore --locked-mode
 
       - name: build
         run: pnpm build
