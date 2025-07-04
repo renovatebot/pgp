@@ -14,8 +14,7 @@ plugins {
 }
 
 dependencies {
-  implementation(libs.slf4j.api)
-  implementation(libs.pgpainless.core)
+  implementation(libs.bouncycastle.bcpg)
   implementation(project(":tools:teavm-plugin"))
   teavm(teavm.libs.jsoApis)
 }
