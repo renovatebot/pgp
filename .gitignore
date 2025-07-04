@@ -144,7 +144,6 @@ vite.config.ts.timestamp-*
 # Ignore Gradle build output directory
 build
 
-
 # dotnet
 obj/
 bin/
