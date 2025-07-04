@@ -35,8 +35,9 @@ public final class Main {
       firstObject = pgpFactory.nextObject();
     }
 
+    final var keyStream = PGPUtil.getDecoderStream(new ByteArrayInputStream(key.getBytes(StandardCharsets.UTF_8)));
     final var keyRing = new PGPSecretKeyRingCollection(
-        PGPUtil.getDecoderStream(new ByteArrayInputStream(key.getBytes(StandardCharsets.UTF_8))),
+        keyStream,
         new BcKeyFingerprintCalculator());
 
     PGPPrivateKey keyToUse = null;
@@ -68,6 +69,7 @@ public final class Main {
       final var outputStream = new ByteArrayOutputStream();
       Streams.pipeAll(literalData.getInputStream(), outputStream);
       result = outputStream.toString(StandardCharsets.UTF_8);
+      outputStream.close();
     } else {
       throw new PGPException("Message is not encoded correctly.");
     }
@@ -75,6 +77,10 @@ public final class Main {
     if (encryptedData.isIntegrityProtected() && !encryptedData.verify()) {
       throw new PGPException("Message failed integrity check!");
     }
+
+    input.close();
+    keyStream.close();
+    clearText.close();
 
     return result;
   }
