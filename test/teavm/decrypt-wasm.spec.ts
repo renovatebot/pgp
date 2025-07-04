@@ -31,7 +31,6 @@ describe('teavm/decrypt-wasm', async () => {
   afterAll(() => {
     teavm = null;
     decrypt = null;
-    console.dir(WebAssembly);
   });
 
   // fails for unknown reason
