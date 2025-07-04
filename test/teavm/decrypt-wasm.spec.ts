@@ -1,31 +1,27 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { fixMessage, readFixture } from '../util';
 import fs from 'node:fs/promises';
+import { load } from '../../dist/teavm/lib.wasm-runtime.js';
 
 describe('teavm/decrypt-wasm', async () => {
   let teavm: any;
   let decrypt: null | ((key: string, message: string) => string) = null;
 
   beforeAll(async () => {
-    var fetch = async (url: string | URL) =>
-      new Response(await fs.readFile(url), {
-        headers: { 'Content-Type': 'application/wasm' },
-      });
+    const fetch = globalThis.fetch;
 
-    var TeaVM = {} as any;
-    const runtime = await fs.readFile(
-      new URL(`../../dist/teavm/lib.wasm-runtime.js`, import.meta.url),
-      { encoding: 'utf-8' },
-    );
-    eval?.('(function teavm$wrapper(TeaVM,fetch) {' + runtime + '})')(
-      TeaVM,
-      fetch,
-    );
-    teavm = await TeaVM.wasmGC.load(
+    Object.assign(globalThis, {
+      fetch: async (url: string) =>
+        new Response(await fs.readFile(url), {
+          headers: { 'Content-Type': 'application/wasm' },
+        }),
+    });
+
+    const teavm = await load(
       new URL(`../../dist/teavm/lib.wasm`, import.meta.url),
     );
-    decrypt = teavm.exports.decrypt;
     Object.assign(globalThis, { fetch });
+    decrypt = teavm.exports.decrypt;
   });
 
   afterAll(() => {

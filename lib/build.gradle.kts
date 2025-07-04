@@ -51,6 +51,7 @@ teavm.wasmGC {
   outputDir = file("../dist")
   relativePathInOutputDir = "teavm"
   obfuscated = false
+  modularRuntime= true
   // outOfProcess = true
   // sourceMap = true
 }
