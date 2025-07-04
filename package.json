@@ -20,7 +20,8 @@
     "prepare": "husky",
     "prettier": "PRETTIER_EXPERIMENTAL_CLI=1 prettier -c -u .",
     "prettier:fix": "PRETTIER_EXPERIMENTAL_CLI=1 prettier -w -u .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:teavm-wasm": "node test/teavm/wasm.js"
   },
   "devDependencies": {
     "@types/node": "^22.15.35",
