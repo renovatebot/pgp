@@ -1,22 +1,18 @@
 import { fixMessage, readFixture } from '../util.js';
 import fs from 'node:fs/promises';
+import { load } from '../../dist/teavm/lib.wasm-runtime.js';
 
 const decrypt = await (async function () {
-  const fetch = async (url) =>
-    new Response(await fs.readFile(url), {
-      headers: { 'Content-Type': 'application/wasm' },
-    });
+  const fetch = globalThis.fetch;
 
-  const TeaVM = {};
-  const runtime = await fs.readFile(
-    new URL(`../../dist/teavm/lib.wasm-runtime.js`, import.meta.url),
-    { encoding: 'utf-8' },
-  );
-  eval?.('(function teavm$wrapper(TeaVM,fetch) {' + runtime + '})')(
-    TeaVM,
-    fetch,
-  );
-  const teavm = await TeaVM.wasmGC.load(
+  Object.assign(globalThis, {
+    fetch: async (url) =>
+      new Response(await fs.readFile(url), {
+        headers: { 'Content-Type': 'application/wasm' },
+      }),
+  });
+
+  const teavm = await load(
     new URL(`../../dist/teavm/lib.wasm`, import.meta.url),
   );
   Object.assign(globalThis, { fetch });
