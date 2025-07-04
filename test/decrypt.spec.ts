@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import { fixMessage } from './util';
 
 describe('decrypt', () => {
-  it('armore error', async () => {
+  it('armor error', async () => {
     const key = await fs.readFile(`${__dirname}/private-pgp.pem`, {
       encoding: 'utf-8',
     });

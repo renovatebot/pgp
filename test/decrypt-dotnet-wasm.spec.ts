@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import { decrypt } from '../dist/dotnet-wasm/main.mjs';
 
 describe('decrypt-dotnet-wasm', () => {
-  it('works', async () => {
+  it('armor error', async () => {
     const key = await fs.readFile(`${__dirname}/private-pgp.pem`, {
       encoding: 'utf-8',
     });
@@ -15,7 +15,7 @@ describe('decrypt-dotnet-wasm', () => {
     expect(() => decrypt(key, fixMessage(msg))).toThrow('invalid armor');
   });
 
-  it('works other', async () => {
+  it('works', async () => {
     const key = await fs.readFile(`${__dirname}/private-pgp.pem`, {
       encoding: 'utf-8',
     });
