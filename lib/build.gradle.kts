@@ -56,6 +56,6 @@ teavm.wasmGC {
 
 
 tasks.named("build") {
-  finalizedBy("generateJavaScript")
-  // finalizedBy("buildWasmGC")
+  dependsOn("generateJavaScript")
+  dependsOn("buildWasmGC")
 }
