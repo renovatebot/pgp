@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs/promises';
-import { decrypt } from '../dist/wasm/main.mjs';
+import { decrypt } from '../dist/dotnet-wasm/main.mjs';
 
-describe('decrypt-wasm', () => {
+describe('decrypt-dotnet-wasm', () => {
   it('works', async () => {
     const key = await fs.readFile(`${__dirname}/private-pgp.pem`, {
       encoding: 'utf-8',
