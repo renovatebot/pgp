@@ -50,6 +50,8 @@ teavm.wasmGC {
   mainClass = "com.github.renovatebot.Main"
   outputDir = file("../dist")
   relativePathInOutputDir = "teavm"
+  obfuscated = false
+  modularRuntime= true
   // outOfProcess = true
   // sourceMap = true
 }
