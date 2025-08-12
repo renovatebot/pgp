@@ -13,7 +13,6 @@ import org.teavm.model.instructions.StringConstantInstruction;
 import org.teavm.model.util.ModelUtils;
 import com.github.renovatebot.teavm.transformer.classlib.FileInputStreamSubstitude;
 import com.github.renovatebot.teavm.transformer.classlib.RuntimeSubstitude;
-import com.github.renovatebot.teavm.transformer.classlib.SecureRandomSubstitude;
 
 public class CoreTransformer implements ClassHolderTransformer {
   private static final Logger LOG = Logger.getLogger(CoreTransformer.class.getName());
@@ -53,13 +52,6 @@ public class CoreTransformer implements ClassHolderTransformer {
           }
         }
       }
-    }
-
-    if (cls.getName().equals(SecureRandom.class.getName())) {
-      LOG.log(Level.INFO, "Found class: {0}", cls.getName());
-      var hierarchy = context.getHierarchy();
-      var subst = hierarchy.getClassSource().get(SecureRandomSubstitude.class.getName());
-      copyMethods(cls, subst);
     }
   }
 
