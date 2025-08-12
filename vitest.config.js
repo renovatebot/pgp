@@ -9,7 +9,7 @@ console.info('CI:', ci);
 export default defineConfig(() => {
   return {
     test: {
-      pool: ci ? 'forks' : 'threads',
+      pool: 'forks', // Doesn't exit: ci ? 'forks' : 'threads',
       environment: 'node',
       // setupFiles: ['./Scripts/test-setup.ts'],
       include: ['test/**/*.spec.ts'],
