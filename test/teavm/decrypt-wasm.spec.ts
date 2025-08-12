@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { fixMessage, readFixture } from '../util';
+import { fixMessage, readFixture } from '../util.js';
 import fs from 'node:fs/promises';
 import { load } from '../../dist/teavm/lib.wasm-runtime.js';
 
