@@ -1,7 +1,6 @@
 package com.github.renovatebot.teavm.transformer;
 
 import java.io.FileInputStream;
-import java.security.SecureRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
