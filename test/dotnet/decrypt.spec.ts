@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { decrypt } from '../../dist/dotnet/main.mjs';
-import { fixMessage, readFixture } from '../util';
+import { fixMessage, readFixture } from '../util.js';
 
 describe('dotnet/decrypt', () => {
   it('armor error', async () => {

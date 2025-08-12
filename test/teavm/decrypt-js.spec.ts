@@ -1,6 +1,6 @@
-import { decrypt } from '../..';
+import { decrypt } from '../../index.js';
 import { describe, expect, it } from 'vitest';
-import { fixMessage, readFixture } from '../util';
+import { fixMessage, readFixture } from '../util.js';
 
 describe('teavm/decrypt-js', () => {
   it('armor error', async () => {
