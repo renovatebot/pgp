@@ -50,12 +50,17 @@ teavm.wasmGC {
   mainClass = "com.github.renovatebot.Main"
   outputDir = file("../dist")
   relativePathInOutputDir = "teavm"
+  strict = true
+  // disassembly = true
+  obfuscated = false
+  modularRuntime = true
+  // debugInformation = true
   // outOfProcess = true
   // sourceMap = true
 }
 
 
-tasks.named("build") {
-  dependsOn("generateJavaScript")
-  dependsOn("buildWasmGC")
+tasks.assemble.configure {
+  dependsOn(tasks.generateJavaScript)
+  dependsOn(tasks.buildWasmGC)
 }
