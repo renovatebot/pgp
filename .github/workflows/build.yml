@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   setup:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
 
     steps:
@@ -24,7 +24,7 @@ jobs:
           save-cache: true
 
   lint:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: setup
     timeout-minutes: 15
     permissions:
@@ -61,7 +61,7 @@ jobs:
           check_all_files_with_shebangs: 'true'
 
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: setup
     timeout-minutes: 15
 
@@ -109,7 +109,7 @@ jobs:
             dist/
 
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs:
       - setup
       - build
@@ -144,7 +144,7 @@ jobs:
       - lint
       - build
       - test
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 1
     if: always()
     steps:
