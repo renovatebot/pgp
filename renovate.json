@@ -1,5 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["local>renovatebot/.github//renovate-config.json"],
-  "postUpdateOptions": ["dotnetWorkloadRestore"]
+  "postUpdateOptions": ["dotnetWorkloadRestore"],
+  "packageRules": [
+    {
+      "description": "set fix scope for prod deps",
+      "matchDepNames": ["BouncyCastle.Cryptography", "dotnet-sdk"],
+      "semanticCommitType": "fix"
+    }
+  ]
 }
