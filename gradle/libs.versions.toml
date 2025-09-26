@@ -1,7 +1,7 @@
 [versions]
 bouncycastle = "1.82"
 junit-jupiter = "5.13.4"
-pgpainless = "1.7.6"
+pgpainless = "1.7.7"
 slf4j = "2.0.17"
 teavm = "0.12.3"
 
