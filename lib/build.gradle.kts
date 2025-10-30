@@ -9,7 +9,7 @@
 import org.teavm.gradle.api.JSModuleType
 
 plugins {
-  `java`
+  id("java-common-conventions")
   alias(libs.plugins.teavm)
 }
 
