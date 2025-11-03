@@ -1,4 +1,5 @@
 strictPeerDependencies: true
+savePrefix: ''
 
 ignoredBuiltDependencies:
   - esbuild
