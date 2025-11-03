@@ -12,7 +12,11 @@ public partial class Program
     // Dummy to make compiler happy
   }
 
+#pragma warning disable CA1416 // Validate platform compatibility
+
   [JSExport]
+#pragma warning restore CA1416 // Validate platform compatibility
+
   public static string Decrypt(string key, string msg)
   {
     using var input = PgpUtilities.GetDecoderStream(new MemoryStream(Encoding.UTF8.GetBytes(msg)));
