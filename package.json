@@ -16,7 +16,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "./gradlew build && dotnet publish dotnet",
+    "build": "./gradlew build && dotnet publish dotnet && node tools/patch-build.js",
     "debug:teavm-wasm": "node --inspect-brk test/teavm/wasm.js",
     "prepare": "husky",
     "prettier": "PRETTIER_EXPERIMENTAL_CLI=1 prettier -c -u .",
