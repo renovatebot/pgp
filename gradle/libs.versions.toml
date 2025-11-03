@@ -1,14 +1,12 @@
 [versions]
 bouncycastle = "1.82"
 junit-jupiter = "5.14.1"
-pgpainless = "1.7.7"
 slf4j = "2.0.17"
 teavm = "0.12.3"
 
 [libraries]
 bouncycastle-bcpg = { module = "org.bouncycastle:bcpg-jdk18on", version.ref = "bouncycastle" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
-pgpainless-core = { module = "org.pgpainless:pgpainless-core", version.ref = "pgpainless" }
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 teavm-core = { module = "org.teavm:teavm-core", version.ref = "teavm" }
 teavm-jso-apis = { module = "org.teavm:teavm-jso-apis", version.ref = "teavm" }

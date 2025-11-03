@@ -30,28 +30,6 @@ public class CoreTransformer implements ClassHolderTransformer {
       var subst = hierarchy.getClassSource().get(FileInputStreamSubstitude.class.getName());
       copyMethods(cls, subst);
     }
-
-    if (cls.getName().equals(org.pgpainless.key.parsing.KeyRingReader.class.getName())
-        || cls.getName().equals(org.pgpainless.decryption_verification.OpenPgpInputStream.class.getName())) {
-      LOG.log(Level.INFO, "Found class: {0}", cls.getName());
-
-      var cinit = cls.getMethods().stream()
-          .filter(m -> m.getName().equals("<clinit>"))
-          .findFirst()
-          .get();
-      LOG.log(Level.INFO, "Found method: {0}", cinit.getName());
-
-      for (var b : cinit.getProgram().getBasicBlocks()) {
-        for (var i : b) {
-          if (i instanceof StringConstantInstruction sc) {
-            if (sc.getConstant().equals("UTF8")) {
-              LOG.log(Level.INFO, "  Replacing string constant: {0}", sc.getConstant());
-              sc.setConstant(("UTF-8"));
-            }
-          }
-        }
-      }
-    }
   }
 
   private void copyMethods(ClassHolder cls, ClassReader subst) {
