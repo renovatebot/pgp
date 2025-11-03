@@ -7,6 +7,11 @@
       "description": "set fix scope for prod deps",
       "matchDepNames": ["BouncyCastle.Cryptography", "dotnet-sdk"],
       "semanticCommitType": "fix"
+    },
+    {
+      "description": "set chore scope for dev deps",
+      "matchDepNames": ["org.junit.jupiter:**"],
+      "semanticCommitType": "chore"
     }
   ]
 }
