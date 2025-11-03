@@ -14,7 +14,7 @@ export default defineConfig(() => {
       // setupFiles: ['./Scripts/test-setup.ts'],
       include: ['test/**/*.spec.ts'],
       reporters: ci
-        ? [['default', { summary: false }], 'junit']
+        ? [['default', { summary: false }], 'github-actions', 'junit']
         : ['default', 'junit'],
       outputFile: {
         junit: 'coverage/junit.xml',
