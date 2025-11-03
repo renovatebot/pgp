@@ -1,6 +1,6 @@
 {
   "name": "@renovatebot/pgp",
-  "version": "0.0.1",
+  "version": "0.0.0-semantic-release",
   "description": "PGP library for renovate",
   "keywords": [
     "renovate",
