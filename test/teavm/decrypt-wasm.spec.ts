@@ -45,4 +45,17 @@ describe('teavm/decrypt-wasm', async () => {
     const decrypted = await decrypt(key, msg, { runtime: 'wasm-java' });
     expect(decrypted.trim()).toEqual('test');
   });
+
+  it('fails with aead', async () => {
+    // https://github.com/bcgit/bc-csharp/issues/497
+    const key = await readFixture(`private-pgp-2.4-ecc-aead.pem`);
+
+    const msg = await readFixture(`test-ecc-aead.txt.asc`);
+
+    // const decrypted = await decrypt(key, msg, { runtime: 'wasm-dotnet' });
+    // expect(decrypted.trim()).toEqual('{"o":"abc","r":"","v":"123"}');
+    await expect(
+      async () => await decrypt(key, msg, { runtime: 'wasm-java' }),
+    ).rejects.toThrow('(could not fetch message)');
+  }, 15000);
 });

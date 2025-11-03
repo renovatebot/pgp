@@ -28,6 +28,17 @@ describe('dotnet/decrypt', () => {
     expect(decrypted).toEqual(expected);
   });
 
+  it('borked', async () => {
+    const key = await readFixture(`private-pgp.pem`);
+
+    const msg = await readFixture(`test-borked.txt.asc`);
+    const expected = '{"o":"abc,def","r":"","v":"123"}';
+    const decrypted = await decrypt(key, msg, {
+      runtime: 'wasm-dotnet',
+    });
+    expect(decrypted).toEqual(expected);
+  });
+
   it('works with pgp 2.4 and ecc', async () => {
     const key = await readFixture(`private-pgp-2.4-ecc.pem`);
 
@@ -35,6 +46,19 @@ describe('dotnet/decrypt', () => {
 
     const decrypted = await decrypt(key, msg, { runtime: 'wasm-dotnet' });
     expect(decrypted.trim()).toEqual('test');
+
+    const d1 = await decrypt(
+      key,
+      fixMessage(
+        'hF4DYQZIAg0KuBYSAQdA5NiDH8ye4MUHCKeJDoL7PfCxMfCAOM69tvjAORxI7Ccw' +
+          'YakY7m8uDpHiy2Qh7mmiq9qjB0jQ4AuIJLeZkXyEPjovDxoIDnCDtk5AErJ2iZH/' +
+          '0kcBPxloJCarHSZAmbzHxYVhsMI+Aeu4vkIZ7GXBgrCABMXgbb1cYHSZYRPkIWZx' +
+          '4ELxhnqDKFSXCgzsRoFzDerg+1+cTwwtGA==\n' +
+          '=iVPA',
+      ),
+      { runtime: 'wasm-dotnet' },
+    );
+    expect(d1.trim()).toEqual('test');
   });
 
   it('works with pgp 2.4 and rsa', async () => {
@@ -44,5 +68,18 @@ describe('dotnet/decrypt', () => {
 
     const decrypted = await decrypt(key, msg, { runtime: 'wasm-dotnet' });
     expect(decrypted.trim()).toEqual('test');
+  }, 15000);
+
+  it('fails with aead', async () => {
+    // https://github.com/bcgit/bc-csharp/issues/497
+    const key = await readFixture(`private-pgp-2.4-ecc-aead.pem`);
+
+    const msg = await readFixture(`test-ecc-aead.txt.asc`);
+
+    // const decrypted = await decrypt(key, msg, { runtime: 'wasm-dotnet' });
+    // expect(decrypted.trim()).toEqual('{"o":"abc","r":"","v":"123"}');
+    await expect(
+      async () => await decrypt(key, msg, { runtime: 'wasm-dotnet' }),
+    ).rejects.toThrow('unknown packet type encountered: 20');
   }, 15000);
 });
