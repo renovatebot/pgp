@@ -6,6 +6,10 @@
     "renovate",
     "pgp"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renovatebot/pgp.git"
+  },
   "license": "Apache-2.0",
   "author": "Michael Kriese <michael.kriese@gmx.de>",
   "type": "module",
