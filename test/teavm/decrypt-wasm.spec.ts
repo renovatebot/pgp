@@ -13,7 +13,7 @@ describe('teavm/decrypt-wasm', async () => {
 
     await expect(
       async () => await decrypt(key, fixMessage(msg), { runtime: 'wasm-java' }),
-    ).rejects.toThrow('(could not fetch message)');
+    ).rejects.toThrow('invalid armor');
   });
 
   it('works', async () => {
@@ -56,6 +56,6 @@ describe('teavm/decrypt-wasm', async () => {
     // expect(decrypted.trim()).toEqual('{"o":"abc","r":"","v":"123"}');
     await expect(
       async () => await decrypt(key, msg, { runtime: 'wasm-java' }),
-    ).rejects.toThrow('(could not fetch message)');
+    ).rejects.toThrow('Cannot find secret key for message.');
   }, 15000);
 });

@@ -1,3 +1,5 @@
+import fs from 'node:fs/promises';
+
 let decryptDotnet, decryptWasmJava, decryptJsJava;
 
 export async function decrypt(key, data, options) {
@@ -10,10 +12,13 @@ export async function decrypt(key, data, options) {
     case 'wasm-java':
       if (!decryptWasmJava) {
         decryptWasmJava = import('./dist/teavm/lib.wasm-runtime.js').then(
-          ({ load }) =>
-            load(new URL(`./dist/teavm/lib.wasm`, import.meta.url)).then(
-              (teavm) => teavm.exports,
-            ),
+          async ({ load }) =>
+            load(
+              await fs.readFile(
+                new URL(`./dist/teavm/lib.wasm`, import.meta.url),
+              ),
+              { nodejs: true },
+            ).then((teavm) => teavm.exports),
         );
       }
       return (await decryptWasmJava).decrypt(key, data);
