@@ -2,7 +2,7 @@
 bouncycastle = "1.82"
 junit-jupiter = "6.0.1"
 slf4j = "2.0.17"
-teavm = "0.12.3"
+teavm = "0.13.0"
 
 [libraries]
 bouncycastle-bcpg = { module = "org.bouncycastle:bcpg-jdk18on", version.ref = "bouncycastle" }
