@@ -1,4 +1,4 @@
-package com.github.renovatebot.teavm.transformer.classlib;
+package com.github.renovatebot.teavm.classlib;
 
 public abstract class RuntimeSubstitude {
 

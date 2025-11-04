@@ -1,4 +1,4 @@
-package com.github.renovatebot.teavm.transformer.classlib;
+package com.github.renovatebot.teavm.classlib;
 
 import java.nio.channels.FileChannel;
 

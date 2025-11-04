@@ -8,10 +8,10 @@ import org.teavm.model.ClassHolder;
 import org.teavm.model.ClassHolderTransformer;
 import org.teavm.model.ClassHolderTransformerContext;
 import org.teavm.model.ClassReader;
-import org.teavm.model.instructions.StringConstantInstruction;
 import org.teavm.model.util.ModelUtils;
-import com.github.renovatebot.teavm.transformer.classlib.FileInputStreamSubstitude;
-import com.github.renovatebot.teavm.transformer.classlib.RuntimeSubstitude;
+
+import com.github.renovatebot.teavm.classlib.FileInputStreamSubstitude;
+import com.github.renovatebot.teavm.classlib.RuntimeSubstitude;
 
 public class CoreTransformer implements ClassHolderTransformer {
   private static final Logger LOG = Logger.getLogger(CoreTransformer.class.getName());

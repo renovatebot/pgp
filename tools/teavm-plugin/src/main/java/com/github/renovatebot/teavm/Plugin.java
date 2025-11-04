@@ -4,7 +4,7 @@ import org.teavm.vm.spi.TeaVMHost;
 import org.teavm.vm.spi.TeaVMPlugin;
 
 import com.github.renovatebot.teavm.transformer.CoreTransformer;
-import com.github.renovatebot.teavm.transformer.classlib.Slf4jLoggerFactoryTransformer;
+import com.github.renovatebot.teavm.transformer.Slf4jLoggerFactoryTransformer;
 
 public final class Plugin implements TeaVMPlugin {
   @Override

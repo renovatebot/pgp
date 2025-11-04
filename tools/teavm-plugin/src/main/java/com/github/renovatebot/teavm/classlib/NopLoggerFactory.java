@@ -1,4 +1,4 @@
-package com.github.renovatebot.teavm.transformer.classlib;
+package com.github.renovatebot.teavm.classlib;
 
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
