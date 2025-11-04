@@ -27,7 +27,8 @@
     "prettier": "PRETTIER_EXPERIMENTAL_CLI=1 prettier -c -u .",
     "prettier:fix": "PRETTIER_EXPERIMENTAL_CLI=1 prettier -w -u .",
     "test": "vitest run",
-    "test:teavm-wasm": "node test/teavm/wasm.js"
+    "test:teavm-wasm": "node test/teavm/wasm.js",
+    "test:teavm-wasm:prof": "node --prof test/teavm/wasm.js"
   },
   "devDependencies": {
     "@containerbase/semantic-release-pnpm": "1.3.1",
