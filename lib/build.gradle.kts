@@ -30,22 +30,6 @@ teavm.js {
   // sourceMap = true
 }
 
-teavm.wasi {
-  mainClass = "com.github.renovatebot.Main"
-  outputDir = file("../dist")
-  relativePathInOutputDir = "teavm"
-  // outOfProcess = true
-  // sourceMap = true
-}
-
-teavm.wasm {
-  mainClass = "com.github.renovatebot.Main"
-  outputDir = file("../dist")
-  relativePathInOutputDir = "teavm"
-  // outOfProcess = true
-  // sourceMap = true
-}
-
 teavm.wasmGC {
   mainClass = "com.github.renovatebot.Main"
   outputDir = file("../dist")
