@@ -145,6 +145,41 @@ jobs:
       - name: benchmark
         run: pnpm vitest bench --run
 
+  e2e:
+    needs:
+      - build
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu
+          - macos
+          - windows
+        node:
+          - 22
+          - 24
+
+    runs-on: ${{ matrix.os }}-latest
+
+    name: e2e-${{ matrix.os }}-${{ matrix.node }}
+
+    steps:
+      - uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
+        with:
+          save-cache: true
+          node-version: ${{ matrix.node }}
+
+      - name: fetch dist
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          name: dist
+          path: dist
+
+      - name: test
+        run: pnpm test:teavm-wasm
+        timeout-minutes: 1
+
   release:
     needs:
       - lint

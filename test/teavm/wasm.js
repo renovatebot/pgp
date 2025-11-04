@@ -8,5 +8,8 @@ const expected = '{"o":"abc","r":"","v":"123"}';
 const key = await readFixture(`private-pgp.pem`);
 
 const actual = await decrypt(key, fixMessage(msg), { runtime: 'wasm-java' });
-console.assert(actual === expected, 'Decryption failed');
-console.log('Decryption successful:', actual);
+if (actual !== expected) {
+  console.log('Decryption failed:', actual);
+} else {
+  console.log('Decryption successful:', actual);
+}

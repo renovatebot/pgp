@@ -15,7 +15,7 @@ plugins {
 
 dependencies {
   implementation(libs.bouncycastle.bcpg)
-  implementation(project(":tools:teavm-plugin"))
+  // implementation(project(":tools:teavm-plugin"))
   teavm(teavm.libs.jsoApis)
 }
 
