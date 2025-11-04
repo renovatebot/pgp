@@ -51,6 +51,7 @@ teavm.wasmGC {
   outputDir = file("../dist")
   relativePathInOutputDir = "teavm"
   strict = true
+  importedWasmMemory = true
   // disassembly = true
   obfuscated = false
   modularRuntime = true

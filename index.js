@@ -17,7 +17,12 @@ export async function decrypt(key, data, options) {
               await fs.readFile(
                 new URL(`./dist/teavm/lib.wasm`, import.meta.url),
               ),
-              { nodejs: true },
+              {
+                memory: {
+                  shared: true,
+                },
+                nodejs: true,
+              },
             ).then((teavm) => teavm.exports),
         );
       }
