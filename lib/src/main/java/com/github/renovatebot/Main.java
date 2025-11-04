@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+import org.bouncycastle.bcpg.ArmoredInputStream;
 import org.bouncycastle.openpgp.PGPCompressedData;
 import org.bouncycastle.openpgp.PGPEncryptedDataList;
 import org.bouncycastle.openpgp.PGPException;
@@ -13,7 +14,6 @@ import org.bouncycastle.openpgp.PGPObjectFactory;
 import org.bouncycastle.openpgp.PGPPrivateKey;
 import org.bouncycastle.openpgp.PGPPublicKeyEncryptedData;
 import org.bouncycastle.openpgp.PGPSecretKeyRingCollection;
-import org.bouncycastle.openpgp.PGPUtil;
 import org.bouncycastle.openpgp.operator.bc.BcKeyFingerprintCalculator;
 import org.bouncycastle.openpgp.operator.bc.BcPublicKeyDataDecryptorFactory;
 import org.bouncycastle.util.io.Streams;
@@ -27,7 +27,8 @@ public final class Main {
 
   @JSExport
   public static String decrypt(String key, String msg) throws IOException, PGPException {
-    final var input = PGPUtil.getDecoderStream(new ByteArrayInputStream(msg.getBytes(StandardCharsets.UTF_8)));
+    final var builder = ArmoredInputStream.builder().setIgnoreCRC(true);
+    final var input = builder.build(new ByteArrayInputStream(msg.getBytes(StandardCharsets.UTF_8)));
     final var pgpFactory = new PGPObjectFactory(input, new BcKeyFingerprintCalculator());
 
     var firstObject = pgpFactory.nextObject();
@@ -35,7 +36,7 @@ public final class Main {
       firstObject = pgpFactory.nextObject();
     }
 
-    final var keyStream = PGPUtil.getDecoderStream(new ByteArrayInputStream(key.getBytes(StandardCharsets.UTF_8)));
+    final var keyStream = builder.build(new ByteArrayInputStream(key.getBytes(StandardCharsets.UTF_8)));
     final var keyRing = new PGPSecretKeyRingCollection(
         keyStream,
         new BcKeyFingerprintCalculator());

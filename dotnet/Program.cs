@@ -2,6 +2,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.JavaScript;
 using System.Text;
+using Org.BouncyCastle.Bcpg;
 using Org.BouncyCastle.Bcpg.OpenPgp;
 using Org.BouncyCastle.Utilities.IO;
 
@@ -19,7 +20,7 @@ public partial class Program
 
   public static string Decrypt(string key, string msg)
   {
-    using var input = PgpUtilities.GetDecoderStream(new MemoryStream(Encoding.UTF8.GetBytes(msg)));
+    using var input = new ArmoredInputStream(new MemoryStream(Encoding.UTF8.GetBytes(msg)));
     var pgpFactory = new PgpObjectFactory(input);
 
     var firstObject = pgpFactory.NextPgpObject();
@@ -31,9 +32,9 @@ public partial class Program
     PgpPrivateKey keyToUse = null;
     PgpSecretKeyRingBundle keyRing = null;
 
-    using (var keyStream = new MemoryStream(Encoding.UTF8.GetBytes(key)))
+    using (var keyStream = new ArmoredInputStream(new MemoryStream(Encoding.UTF8.GetBytes(key))))
     {
-      keyRing = new PgpSecretKeyRingBundle(PgpUtilities.GetDecoderStream(keyStream));
+      keyRing = new PgpSecretKeyRingBundle(keyStream);
     }
 
     var encryptedData = ((PgpEncryptedDataList)firstObject)
