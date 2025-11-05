@@ -11,6 +11,9 @@ importers:
       '@containerbase/semantic-release-pnpm':
         specifier: 1.3.2
         version: 1.3.2(semantic-release@25.0.1(typescript@5.9.3))
+      '@renovatebot/kbpgp':
+        specifier: 4.0.4
+        version: 4.0.4
       '@types/node':
         specifier: 22.18.13
         version: 22.18.13
@@ -29,6 +32,9 @@ importers:
       markdownlint-cli2:
         specifier: 0.18.1
         version: 0.18.1
+      openpgp:
+        specifier: 6.2.2
+        version: 6.2.2
       prettier:
         specifier: 3.6.2
         version: 3.6.2
@@ -340,6 +346,10 @@ packages:
     resolution: {integrity: sha512-c83qWb22rNRuB0UaVCI0uRPNRr8Z0FWnEIvT47jiHAmOIUHbBOg5XvV7pM5x+rKn9HRpjxquDbXYSXr3fAKFcw==}
     engines: {node: '>=12'}
 
+  '@renovatebot/kbpgp@4.0.4':
+    resolution: {integrity: sha512-jHC+jEbW/IMgppTfltGvheNv2WDPlYR/Jm+vcfRsCAO0JEfMAyh/aPYQ6ttRiB5GJlstxZiJpxGcMSS/7uDb1A==}
+    engines: {node: ^20.9.0 || ^22.11.0 || >=24.10.0, pnpm: ^10.0.0}
+
   '@rollup/rollup-android-arm-eabi@4.52.5':
     resolution: {integrity: sha512-8c1vW4ocv3UOMp9K+gToY5zL2XiiVw3k7f1ksf4yO1FlDFQ1C2u72iACFnSOceJFsWskc2WZNqeRhFRPzv+wtQ==}
     cpu: [arm]
@@ -615,12 +625,18 @@ packages:
   before-after-hook@4.0.0:
     resolution: {integrity: sha512-q6tR3RPqIB1pMiTRMFcZwuG5T8vwp+vUvEG0vuI6B+Rikh5BfPp2fQ82c925FOs+b0lcFQ8CFrL+KbilfZFhOQ==}
 
+  bn@1.0.5:
+    resolution: {integrity: sha512-7TvGbqbZb6lDzsBtNz1VkdXXV0BVmZKPPViPmo2IpvwaryF7P+QKYKACyVkwo2mZPr2CpFiz7EtgPEcc3o/JFQ==}
+
   bottleneck@2.19.5:
     resolution: {integrity: sha512-VHiNCbI1lKdl44tGrhNfU3lup0Tj/ZBMJB5/2ZbNXRCPuRCO7ed2mgcK4r17y+KB2EfuYuRaVlwNbAeaWGSpbw==}
 
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
+
+  bzip-deflate@1.0.0:
+    resolution: {integrity: sha512-9RMnpiJqMYMJcLdr4pxwowZ8Zh3P+tVswE/bnX6tZ14UGKNcdV5WVK2P+lGp2As+RCjl+i3SFJ117HyCaaHNDA==}
 
   callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
@@ -1022,6 +1038,21 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  iced-error@0.0.13:
+    resolution: {integrity: sha512-yEEaG8QfyyRL0SsbNNDw3rVgTyqwHFMCuV6jDvD43f/2shmdaFXkqvFLGhDlsYNSolzYHwVLM/CrXt9GygYopA==}
+
+  iced-lock@1.1.0:
+    resolution: {integrity: sha512-J9UMVitgTMYrkUil5EB9/Q4BPWiMpFH156yjDlmMoMRKs3s3PnXj/6G0UlzIOGnNi5JVNk/zVYLXVnuo+1QnqQ==}
+
+  iced-lock@2.0.1:
+    resolution: {integrity: sha512-J6dnGMpAoHNyACUYJYhiJkLY7YFRTa7NMZ8ZygpYB3HNDOGWtzv55+kT2u1zItRi4Y1EXruG9d1VDsx8R5faTw==}
+
+  iced-runtime-3@3.0.5:
+    resolution: {integrity: sha512-OHU64z4Njq4EdoGyRId5NgUQKy6R1sr1wufc1fVxwpqKsM8yWagqmKCRlt//zKKIPOfZw7kQ1iN4m+/2s8WSeg==}
+
+  iced-runtime@1.0.4:
+    resolution: {integrity: sha512-rgiJXNF6ZgF2Clh/TKUlBDW3q51YPDJUXmxGQXx1b8tbZpVpTn+1RX9q1sjNkujXIIaVxZByQzPHHORg7KV51g==}
+
   ignore@7.0.5:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
@@ -1165,6 +1196,12 @@ packages:
   katex@0.16.25:
     resolution: {integrity: sha512-woHRUZ/iF23GBP1dkDQMh1QBad9dmr8/PAwNA54VrSOVYgI12MAcE14TqnDdQOdzyEonGzMepYnqBMYdsoAr8Q==}
     hasBin: true
+
+  keybase-ecurve@1.0.1:
+    resolution: {integrity: sha512-2GlVxDsNF+52LtYjgFsjoKuN7MQQgiVeR4HRdJxLuN8fm4mf4stGKPUjDJjky15c/98UsZseLjp7Ih5X0Sy1jQ==}
+
+  keybase-nacl@1.1.4:
+    resolution: {integrity: sha512-7TFyWLq42CQs7JES9arR+Vnv/eMk5D6JT1Y8samrEA5ff3FOmaiRcXIVrwJQd3KJduxmSjgAjdkXlQK7Q437xQ==}
 
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
@@ -1366,6 +1403,9 @@ packages:
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
+  more-entropy@0.0.7:
+    resolution: {integrity: sha512-e0TxQtU1F6/ZA8WnEA2JLQwwDqBTtZFLJSW7rWgUsQou35wx1IOL0g2O7q7oGoMgIJto+jHMnNGHLfSiylHRrw==}
+
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -1490,6 +1530,10 @@ packages:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
 
+  openpgp@6.2.2:
+    resolution: {integrity: sha512-P/dyEqQ3gfwOCo+xsqffzXjmUhGn4AZTOJ1LCcN21S23vAk+EAvMJOQTsb/C8krL6GjOSBxqGYckhik7+hneNw==}
+    engines: {node: '>= 18.0.0'}
+
   p-each-series@3.0.0:
     resolution: {integrity: sha512-lastgtAdoH9YaLyDa5i5z64q+kzOcQHsQ5SsZJD3q0VEyI8mq872S3geuNbRUQLVAE9siMfgKrpj7MloKFHruw==}
     engines: {node: '>=12'}
@@ -1577,6 +1621,9 @@ packages:
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
 
+  pgp-utils@0.0.35:
+    resolution: {integrity: sha512-gCT6EbSTgljgycVa5qGpfRITaLOLbIKsEVRTdsNRgmLMAJpuJNNdrTn/95r8IWo9rFLlccfmGMJXkG9nVDwmrA==}
+
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -1625,12 +1672,20 @@ packages:
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
 
+  progress@1.1.8:
+    resolution: {integrity: sha512-UdA8mJ4weIkUBO224tIarHzuHs4HuYiJvsuGT7j/SPQiUJVjYvNDBIPa0hAorduOfjGohB/qHWRa/lrrWX/mXw==}
+    engines: {node: '>=0.4.0'}
+
   proto-list@1.2.4:
     resolution: {integrity: sha512-vtK/94akxsTMhe0/cbfpR+syPuszcuwhqVjJq26CuNDgFGj682oRBXOP5MJpv2r7JtE8MsiepGIqvvOTBwn2vA==}
 
   punycode.js@2.3.1:
     resolution: {integrity: sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==}
     engines: {node: '>=6'}
+
+  purepack@1.0.6:
+    resolution: {integrity: sha512-L/e3qq/3m/TrYtINo2aBB98oz6w8VHGyFy+arSKwPMZDUNNw2OaQxYnZO6UIZZw2OnRl2qkxGmuSOEfsuHXJdA==}
+    engines: {node: '>=0.10.0'}
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -1888,9 +1943,18 @@ packages:
     resolution: {integrity: sha512-aXJDbk6SnumuaZSANd21XAo15ucCDE38H4fkqiGsc3MhCK+wOlZvLP9cB/TvpHT0mOyWgC4Z8EwRlzqYSUzdsA==}
     engines: {node: '>= 0.4'}
 
+  triplesec@4.0.3:
+    resolution: {integrity: sha512-fug70e1nJoCMxsXQJlETisAALohm84vl++IiTTHEqM7Lgqwz62jrlwqOC/gJEAJjO/ByN127sEcioB56HW3wIw==}
+
   tunnel@0.0.6:
     resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
     engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
+
+  tweetnacl@0.13.3:
+    resolution: {integrity: sha512-iNWodk4oBsZ03Qfw/Yvv0KB90uYrJqvL4Je7Gy4C5t/GS3sCXPRmIT1lxmId4RzvUp0XG62bcxJ2CBu/3L5DSg==}
+
+  tweetnacl@1.0.3:
+    resolution: {integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==}
 
   type-fest@1.4.0:
     resolution: {integrity: sha512-yGSza74xk0UG8k+pLh5oeoYirvIiWo5t0/o3zHHAO2tRDiZcxWP7fywNlXhqb6/r6sWvwi+RsyQMWhVLe4BVuA==}
@@ -1916,6 +1980,9 @@ packages:
     resolution: {integrity: sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==}
     engines: {node: '>=0.8.0'}
     hasBin: true
+
+  uint64be@1.0.1:
+    resolution: {integrity: sha512-w+VZSp8hSZ/xWZfZNMppWNF6iqY+dcMYtG5CpwRDgxi94HIE6ematSdkzHGzVC4SDEaTsG65zrajN+oKoWG6ew==}
 
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
@@ -2309,6 +2376,21 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
+  '@renovatebot/kbpgp@4.0.4':
+    dependencies:
+      bn: 1.0.5
+      bzip-deflate: 1.0.0
+      iced-error: 0.0.13
+      iced-lock: 2.0.1
+      iced-runtime-3: 3.0.5
+      keybase-ecurve: 1.0.1
+      keybase-nacl: 1.1.4
+      minimist: 1.2.8
+      pgp-utils: 0.0.35
+      purepack: 1.0.6
+      triplesec: 4.0.3
+      tweetnacl: 1.0.3
+
   '@rollup/rollup-android-arm-eabi@4.52.5':
     optional: true
 
@@ -2582,11 +2664,15 @@ snapshots:
 
   before-after-hook@4.0.0: {}
 
+  bn@1.0.5: {}
+
   bottleneck@2.19.5: {}
 
   braces@3.0.3:
     dependencies:
       fill-range: 7.1.1
+
+  bzip-deflate@1.0.0: {}
 
   callsites@3.1.0: {}
 
@@ -2997,6 +3083,20 @@ snapshots:
 
   husky@9.1.7: {}
 
+  iced-error@0.0.13: {}
+
+  iced-lock@1.1.0:
+    dependencies:
+      iced-runtime: 1.0.4
+
+  iced-lock@2.0.1:
+    dependencies:
+      iced-runtime: 1.0.4
+
+  iced-runtime-3@3.0.5: {}
+
+  iced-runtime@1.0.4: {}
+
   ignore@7.0.5: {}
 
   import-fresh@3.3.1:
@@ -3121,6 +3221,16 @@ snapshots:
   katex@0.16.25:
     dependencies:
       commander: 8.3.0
+
+  keybase-ecurve@1.0.1:
+    dependencies:
+      bn: 1.0.5
+
+  keybase-nacl@1.1.4:
+    dependencies:
+      iced-runtime: 1.0.4
+      tweetnacl: 0.13.3
+      uint64be: 1.0.1
 
   lines-and-columns@1.2.4: {}
 
@@ -3441,6 +3551,10 @@ snapshots:
 
   minimist@1.2.8: {}
 
+  more-entropy@0.0.7:
+    dependencies:
+      iced-runtime: 1.0.4
+
   ms@2.1.3: {}
 
   mz@2.7.0:
@@ -3492,6 +3606,8 @@ snapshots:
   onetime@7.0.0:
     dependencies:
       mimic-function: 5.0.1
+
+  openpgp@6.2.2: {}
 
   p-each-series@3.0.0: {}
 
@@ -3569,6 +3685,11 @@ snapshots:
 
   pathe@2.0.3: {}
 
+  pgp-utils@0.0.35:
+    dependencies:
+      iced-error: 0.0.13
+      iced-runtime: 1.0.4
+
   picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
@@ -3605,9 +3726,13 @@ snapshots:
 
   process-nextick-args@2.0.1: {}
 
+  progress@1.1.8: {}
+
   proto-list@1.2.4: {}
 
   punycode.js@2.3.1: {}
+
+  purepack@1.0.6: {}
 
   queue-microtask@1.2.3: {}
 
@@ -3914,7 +4039,20 @@ snapshots:
 
   traverse@0.6.8: {}
 
+  triplesec@4.0.3:
+    dependencies:
+      iced-error: 0.0.13
+      iced-lock: 1.1.0
+      iced-runtime: 1.0.4
+      more-entropy: 0.0.7
+      progress: 1.1.8
+      uglify-js: 3.19.3
+
   tunnel@0.0.6: {}
+
+  tweetnacl@0.13.3: {}
+
+  tweetnacl@1.0.3: {}
 
   type-fest@1.4.0: {}
 
@@ -3926,8 +4064,9 @@ snapshots:
 
   uc.micro@2.1.0: {}
 
-  uglify-js@3.19.3:
-    optional: true
+  uglify-js@3.19.3: {}
+
+  uint64be@1.0.1: {}
 
   undici-types@6.21.0: {}
 

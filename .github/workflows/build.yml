@@ -162,6 +162,9 @@ jobs:
         with:
           use_oidc: true
 
+      - name: benchmark
+        run: vitest bench --run
+
   release:
     needs:
       - lint
