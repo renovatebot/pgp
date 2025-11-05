@@ -6,4 +6,3 @@ rootProject.name = "pgp"
 
 include("tools:teavm-plugin")
 include("lib")
-include("test:teavm")
