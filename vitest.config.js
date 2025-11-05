@@ -30,6 +30,12 @@ export default defineConfig(() => {
           : ['text-summary', 'html', 'cobertura'],
         enabled: ci ? true : undefined,
         include: ['index.js'],
+        watermarks: {
+          statements: 100,
+          functions: 100,
+          branches: 100,
+          lines: 100,
+        },
       },
     },
   };

@@ -29,6 +29,6 @@ export async function decrypt(key, data, options) {
       }
       return (await decryptDotnet).decrypt(key, data);
     default:
-      throw new Error('Unsupported runtime specified in options');
+      throw new Error(`Unsupported runtime: ${options?.runtime}`);
   }
 }
