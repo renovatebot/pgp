@@ -1,4 +1,10 @@
+export const SupportedRuntimes = ['js-java', 'wasm-java', 'wasm-dotnet'];
+
 let decryptDotnet, decryptWasmJava, decryptJsJava;
+
+export function isSupportedRuntime(runtime) {
+  return SupportedRuntimes.includes(runtime);
+}
 
 export async function decrypt(key, data, options) {
   switch (options?.runtime) {
