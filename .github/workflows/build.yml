@@ -163,7 +163,7 @@ jobs:
           use_oidc: true
 
       - name: benchmark
-        run: vitest bench --run
+        run: pnpm vitest bench --run
 
   release:
     needs:
