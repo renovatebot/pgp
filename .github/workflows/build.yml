@@ -31,12 +31,7 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-        with:
-          show-progress: false
-
-      - name: 📥 Setup Node.js
-        uses: ./.github/actions/setup-node
+      - uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
         with:
           save-cache: true
 
@@ -49,12 +44,7 @@ jobs:
       checks: write
 
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-        with:
-          show-progress: false
-
-      - name: 📥 Setup Node.js
-        uses: ./.github/actions/setup-node
+      - uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
 
       - name: lint
         run: |
@@ -85,12 +75,7 @@ jobs:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
 
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-        with:
-          show-progress: false
-
-      - name: 📥 Setup Node.js
-        uses: ./.github/actions/setup-node
+      - uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
 
       - name: 📥 Setup Java
         uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
@@ -134,12 +119,7 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-        with:
-          show-progress: false
-
-      - name: 📥 Setup Node.js
-        uses: ./.github/actions/setup-node
+      - uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
 
       - name: fetch dist
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
