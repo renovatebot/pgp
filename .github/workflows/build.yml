@@ -31,7 +31,8 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
+      - name: ⚙️ Setup
+        uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
         with:
           save-cache: true
 
@@ -44,7 +45,8 @@ jobs:
       checks: write
 
     steps:
-      - uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
+      - name: ⚙️ Setup
+        uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
 
       - name: lint
         run: |
@@ -75,7 +77,8 @@ jobs:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
 
     steps:
-      - uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
+      - name: ⚙️ Setup
+        uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
 
       - name: 📥 Setup Java
         uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
@@ -112,14 +115,14 @@ jobs:
   test:
     runs-on: ubuntu-24.04
     needs:
-      - setup
       - build
     timeout-minutes: 15
     permissions:
       id-token: write
 
     steps:
-      - uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
+      - name: ⚙️ Setup
+        uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
 
       - name: fetch dist
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
@@ -142,6 +145,22 @@ jobs:
         with:
           use_oidc: true
 
+  benchmark:
+    runs-on: ubuntu-24.04
+    needs:
+      - build
+    timeout-minutes: 5
+
+    steps:
+      - name: ⚙️ Setup
+        uses: containerbase/internal-tools/setup@7c88f112d9360bccbbc11f830563c077e1cda40f # v3.14.13
+
+      - name: fetch dist
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          name: dist
+          path: dist
+
       - name: benchmark
         run: pnpm vitest bench --run
 
@@ -150,6 +169,7 @@ jobs:
       - lint
       - build
       - test
+      - benchmark
     runs-on: ubuntu-latest
 
     # tests shouldn't need more time
@@ -191,6 +211,7 @@ jobs:
       - lint
       - build
       - test
+      - benchmark
       - release
     runs-on: ubuntu-24.04
     timeout-minutes: 1
@@ -212,6 +233,12 @@ jobs:
         if: |
           needs.test.result == 'failure' ||
           needs.test.result == 'skipped'
+        run: exit 1
+
+      - name: Fail for failed or skipped benchmark job
+        if: |
+          needs.benchmark.result == 'failure' ||
+          needs.benchmark.result == 'skipped'
         run: exit 1
 
       - name: Fail for failed or skipped release job
