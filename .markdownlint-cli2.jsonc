@@ -1,0 +1,18 @@
+{
+  // Disable some built-in rules
+  "config": {
+    "line-length": false,
+    "no-inline-html": false,
+  },
+
+  // Define glob expressions to ignore
+  "ignores": [
+    "**/__fixtures__/*",
+    "**/node_modules/**",
+    "tmp/**",
+    "**/.cache/**",
+    ".venv/**",
+    "dist/**",
+    "build/**",
+  ],
+}
