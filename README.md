@@ -1,4 +1,4 @@
-# pgp
+# Renovate PGP
 
 Renovate PGP library to decrypt pgp encrypted secrets.
-It uses bouncy castle under the hood.
+It uses [Bouncy Castle](https://www.bouncycastle.org/) under the hood.
