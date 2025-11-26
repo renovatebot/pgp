@@ -1,5 +1,5 @@
 [versions]
-bouncycastle = "1.82"
+bouncycastle = "1.83"
 junit-jupiter = "6.0.1"
 slf4j = "2.0.17"
 teavm = "0.13.0"
