@@ -36,7 +36,7 @@
     "@containerbase/semantic-release-pnpm": "1.3.5",
     "@renovatebot/kbpgp": "4.0.4",
     "@types/node": "22.19.1",
-    "@vitest/coverage-v8": "4.0.10",
+    "@vitest/coverage-v8": "4.0.12",
     "conventional-changelog-conventionalcommits": "9.1.0",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
@@ -47,7 +47,7 @@
     "prettier-plugin-packagejson": "2.5.19",
     "semantic-release": "25.0.2",
     "typescript": "5.9.3",
-    "vitest": "4.0.10"
+    "vitest": "4.0.12"
   },
   "packageManager": "pnpm@10.22.0",
   "engines": {
