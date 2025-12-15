@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@e5956c33b6fdd2ddaeca02fde562a8969197a187 # v3.14.34
+        uses: containerbase/internal-tools/setup@e99c697afb2e3b927c25ce772d5a6b27b9927b6b # v3.14.35
         with:
           save-cache: true
 
@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@e5956c33b6fdd2ddaeca02fde562a8969197a187 # v3.14.34
+        uses: containerbase/internal-tools/setup@e99c697afb2e3b927c25ce772d5a6b27b9927b6b # v3.14.35
 
       - name: lint
         run: |
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@e5956c33b6fdd2ddaeca02fde562a8969197a187 # v3.14.34
+        uses: containerbase/internal-tools/setup@e99c697afb2e3b927c25ce772d5a6b27b9927b6b # v3.14.35
 
       - name: 📥 Setup Java
         uses: actions/setup-java@f2beeb24e141e01a676f977032f5a29d81c9e27e # v5.1.0
@@ -122,7 +122,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@e5956c33b6fdd2ddaeca02fde562a8969197a187 # v3.14.34
+        uses: containerbase/internal-tools/setup@e99c697afb2e3b927c25ce772d5a6b27b9927b6b # v3.14.35
 
       - name: fetch dist
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
@@ -154,7 +154,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@e5956c33b6fdd2ddaeca02fde562a8969197a187 # v3.14.34
+        uses: containerbase/internal-tools/setup@e99c697afb2e3b927c25ce772d5a6b27b9927b6b # v3.14.35
 
       - name: fetch dist
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
@@ -190,7 +190,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@e5956c33b6fdd2ddaeca02fde562a8969197a187 # v3.14.34
+        uses: containerbase/internal-tools/setup@e99c697afb2e3b927c25ce772d5a6b27b9927b6b # v3.14.35
         with:
           checkout: false
 
