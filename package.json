@@ -33,7 +33,7 @@
     "test:teavm-wasm:prof": "node --prof test/teavm/wasm.js"
   },
   "devDependencies": {
-    "@containerbase/semantic-release-pnpm": "1.3.17",
+    "@containerbase/semantic-release-pnpm": "1.3.18",
     "@renovatebot/kbpgp": "4.0.4",
     "@types/node": "22.19.7",
     "@vitest/coverage-v8": "4.0.18",
