@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/test/">
+    <Project Path="test/dotnet/lib.csproj" />
+  </Folder>
+  <Project Path="dotnet/lib.csproj" />
+</Solution>
