@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5deae3a281a98870784309f9017eff5e54d2bf31 # v4.5.0
+        uses: containerbase/internal-tools/setup@3eab235c19df00cd3c0975fecfc37ed179d0d6d2 # v4.5.1
         with:
           save-cache: true
 
@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5deae3a281a98870784309f9017eff5e54d2bf31 # v4.5.0
+        uses: containerbase/internal-tools/setup@3eab235c19df00cd3c0975fecfc37ed179d0d6d2 # v4.5.1
 
       - name: lint
         run: |
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5deae3a281a98870784309f9017eff5e54d2bf31 # v4.5.0
+        uses: containerbase/internal-tools/setup@3eab235c19df00cd3c0975fecfc37ed179d0d6d2 # v4.5.1
 
       - name: 📥 Setup Java
         uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
@@ -122,7 +122,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5deae3a281a98870784309f9017eff5e54d2bf31 # v4.5.0
+        uses: containerbase/internal-tools/setup@3eab235c19df00cd3c0975fecfc37ed179d0d6d2 # v4.5.1
 
       - name: fetch dist
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
@@ -154,7 +154,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5deae3a281a98870784309f9017eff5e54d2bf31 # v4.5.0
+        uses: containerbase/internal-tools/setup@3eab235c19df00cd3c0975fecfc37ed179d0d6d2 # v4.5.1
 
       - name: fetch dist
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
@@ -190,7 +190,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5deae3a281a98870784309f9017eff5e54d2bf31 # v4.5.0
+        uses: containerbase/internal-tools/setup@3eab235c19df00cd3c0975fecfc37ed179d0d6d2 # v4.5.1
         with:
           checkout: false
 
