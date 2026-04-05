@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@a9188b7980bb1d8d9fe8647bd07e925f8e017edd # v4.5.10
+        uses: containerbase/internal-tools/setup@bf5a39efd046e09b1930acebdff89fec935a42a9 # v4.5.11
         with:
           save-cache: true
 
@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@a9188b7980bb1d8d9fe8647bd07e925f8e017edd # v4.5.10
+        uses: containerbase/internal-tools/setup@bf5a39efd046e09b1930acebdff89fec935a42a9 # v4.5.11
 
       - name: lint
         run: |
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@a9188b7980bb1d8d9fe8647bd07e925f8e017edd # v4.5.10
+        uses: containerbase/internal-tools/setup@bf5a39efd046e09b1930acebdff89fec935a42a9 # v4.5.11
 
       - name: 📥 Setup Java
         uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
@@ -122,7 +122,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@a9188b7980bb1d8d9fe8647bd07e925f8e017edd # v4.5.10
+        uses: containerbase/internal-tools/setup@bf5a39efd046e09b1930acebdff89fec935a42a9 # v4.5.11
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -154,7 +154,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@a9188b7980bb1d8d9fe8647bd07e925f8e017edd # v4.5.10
+        uses: containerbase/internal-tools/setup@bf5a39efd046e09b1930acebdff89fec935a42a9 # v4.5.11
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -190,7 +190,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@a9188b7980bb1d8d9fe8647bd07e925f8e017edd # v4.5.10
+        uses: containerbase/internal-tools/setup@bf5a39efd046e09b1930acebdff89fec935a42a9 # v4.5.11
         with:
           checkout: false
 
