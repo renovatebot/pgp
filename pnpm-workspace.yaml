@@ -1,5 +1,7 @@
 strictPeerDependencies: true
-savePrefix: ''
+dedupePeers: true
+# updates are handled by Renovate itself
+updateNotifier: false
 
 allowBuilds:
   esbuild: false
