@@ -1,6 +1,6 @@
 [versions]
 bouncycastle = "1.84"
-junit-jupiter = "6.0.3"
+junit-jupiter = "6.1.0"
 slf4j = "2.0.18"
 teavm = "0.14.0"
 
