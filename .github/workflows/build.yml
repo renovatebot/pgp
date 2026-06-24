@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2b02b1ca6cb214c76129aecb9cdbd4468d8732e7 # v4.6.54
+        uses: containerbase/internal-tools/setup@0189d1605aac9c1992a3a378a5710ce0a16d50ce # v4.6.55
         with:
           save-cache: true
 
@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2b02b1ca6cb214c76129aecb9cdbd4468d8732e7 # v4.6.54
+        uses: containerbase/internal-tools/setup@0189d1605aac9c1992a3a378a5710ce0a16d50ce # v4.6.55
 
       - name: lint
         run: |
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2b02b1ca6cb214c76129aecb9cdbd4468d8732e7 # v4.6.54
+        uses: containerbase/internal-tools/setup@0189d1605aac9c1992a3a378a5710ce0a16d50ce # v4.6.55
 
       - name: 📥 Setup Java
         uses: actions/setup-java@ad2b38190b15e4d6bdf0c97fb4fca8412226d287 # v5.3.0
@@ -122,7 +122,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2b02b1ca6cb214c76129aecb9cdbd4468d8732e7 # v4.6.54
+        uses: containerbase/internal-tools/setup@0189d1605aac9c1992a3a378a5710ce0a16d50ce # v4.6.55
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -154,7 +154,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2b02b1ca6cb214c76129aecb9cdbd4468d8732e7 # v4.6.54
+        uses: containerbase/internal-tools/setup@0189d1605aac9c1992a3a378a5710ce0a16d50ce # v4.6.55
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -190,7 +190,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2b02b1ca6cb214c76129aecb9cdbd4468d8732e7 # v4.6.54
+        uses: containerbase/internal-tools/setup@0189d1605aac9c1992a3a378a5710ce0a16d50ce # v4.6.55
         with:
           checkout: false
 
