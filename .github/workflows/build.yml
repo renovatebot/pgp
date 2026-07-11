@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5dad87b46900facdce3bb06ca07c109e67c2604f # v4.6.69
+        uses: containerbase/internal-tools/setup@8c3e9585ec2e68fee68dbd1862e216899b16dfc5 # v4.6.70
         with:
           save-cache: true
 
@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5dad87b46900facdce3bb06ca07c109e67c2604f # v4.6.69
+        uses: containerbase/internal-tools/setup@8c3e9585ec2e68fee68dbd1862e216899b16dfc5 # v4.6.70
 
       - name: lint
         run: |
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5dad87b46900facdce3bb06ca07c109e67c2604f # v4.6.69
+        uses: containerbase/internal-tools/setup@8c3e9585ec2e68fee68dbd1862e216899b16dfc5 # v4.6.70
 
       - name: 📥 Setup Java
         uses: actions/setup-java@0f481fcb613427c0f801b606911222b5b6f3083a # v5.5.0
@@ -122,7 +122,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5dad87b46900facdce3bb06ca07c109e67c2604f # v4.6.69
+        uses: containerbase/internal-tools/setup@8c3e9585ec2e68fee68dbd1862e216899b16dfc5 # v4.6.70
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -154,7 +154,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5dad87b46900facdce3bb06ca07c109e67c2604f # v4.6.69
+        uses: containerbase/internal-tools/setup@8c3e9585ec2e68fee68dbd1862e216899b16dfc5 # v4.6.70
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -190,7 +190,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@5dad87b46900facdce3bb06ca07c109e67c2604f # v4.6.69
+        uses: containerbase/internal-tools/setup@8c3e9585ec2e68fee68dbd1862e216899b16dfc5 # v4.6.70
         with:
           checkout: false
 
