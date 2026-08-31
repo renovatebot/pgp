@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@6937aab9da5919caacdbf80308a6b7d7e7a4c09c # v5.0.16
+        uses: containerbase/internal-tools/setup@1bc2906d53fb229355e0f275214df9aef07fa083 # v5.0.20
         with:
           save-cache: true
 
@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@6937aab9da5919caacdbf80308a6b7d7e7a4c09c # v5.0.16
+        uses: containerbase/internal-tools/setup@1bc2906d53fb229355e0f275214df9aef07fa083 # v5.0.20
 
       - name: lint
         run: |
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@6937aab9da5919caacdbf80308a6b7d7e7a4c09c # v5.0.16
+        uses: containerbase/internal-tools/setup@1bc2906d53fb229355e0f275214df9aef07fa083 # v5.0.20
 
       - name: 📥 Setup Java
         uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
@@ -122,7 +122,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@6937aab9da5919caacdbf80308a6b7d7e7a4c09c # v5.0.16
+        uses: containerbase/internal-tools/setup@1bc2906d53fb229355e0f275214df9aef07fa083 # v5.0.20
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -154,7 +154,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@6937aab9da5919caacdbf80308a6b7d7e7a4c09c # v5.0.16
+        uses: containerbase/internal-tools/setup@1bc2906d53fb229355e0f275214df9aef07fa083 # v5.0.20
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -190,7 +190,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@6937aab9da5919caacdbf80308a6b7d7e7a4c09c # v5.0.16
+        uses: containerbase/internal-tools/setup@1bc2906d53fb229355e0f275214df9aef07fa083 # v5.0.20
         with:
           checkout: false
 
