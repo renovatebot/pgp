@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2df971648bb137b5e3d6628f0c3bed9f86479502 # v5.0.23
+        uses: containerbase/internal-tools/setup@a63553af4ae5f9ff109048f6d7918b93a74107c8 # v5.0.24
         with:
           save-cache: true
 
@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2df971648bb137b5e3d6628f0c3bed9f86479502 # v5.0.23
+        uses: containerbase/internal-tools/setup@a63553af4ae5f9ff109048f6d7918b93a74107c8 # v5.0.24
 
       - name: lint
         run: |
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2df971648bb137b5e3d6628f0c3bed9f86479502 # v5.0.23
+        uses: containerbase/internal-tools/setup@a63553af4ae5f9ff109048f6d7918b93a74107c8 # v5.0.24
 
       - name: 📥 Setup Java
         uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
@@ -122,7 +122,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2df971648bb137b5e3d6628f0c3bed9f86479502 # v5.0.23
+        uses: containerbase/internal-tools/setup@a63553af4ae5f9ff109048f6d7918b93a74107c8 # v5.0.24
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -154,7 +154,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2df971648bb137b5e3d6628f0c3bed9f86479502 # v5.0.23
+        uses: containerbase/internal-tools/setup@a63553af4ae5f9ff109048f6d7918b93a74107c8 # v5.0.24
 
       - name: fetch dist
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -190,7 +190,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@2df971648bb137b5e3d6628f0c3bed9f86479502 # v5.0.23
+        uses: containerbase/internal-tools/setup@a63553af4ae5f9ff109048f6d7918b93a74107c8 # v5.0.24
         with:
           checkout: false
 
