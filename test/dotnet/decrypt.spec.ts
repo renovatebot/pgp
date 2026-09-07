@@ -80,6 +80,6 @@ describe('dotnet/decrypt', () => {
     // expect(decrypted.trim()).toEqual('{"o":"abc","r":"","v":"123"}');
     await expect(
       async () => await decrypt(key, msg, { runtime: 'wasm-dotnet' }),
-    ).rejects.toThrow('unknown packet type encountered: 20');
+    ).rejects.toThrow('Cannot find secret key for message.');
   }, 15000);
 });
