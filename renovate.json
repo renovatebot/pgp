@@ -12,6 +12,11 @@
       "description": "set chore scope for dev deps",
       "matchDepNames": ["org.junit.jupiter:**"],
       "semanticCommitType": "chore"
+    },
+    {
+      "description": "teavm >=0.15 needs wasm exnref, which needs node >=24.15",
+      "matchDepNames": ["org.teavm:**"],
+      "allowedVersions": "<0.15.0"
     }
   ]
 }
