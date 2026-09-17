@@ -123,8 +123,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # empty string uses `.node-version`, the others are the lowest versions allowed by `engines.node`
-        node-version: ['', '22.11.0', '24.10.0']
+        # empty string uses `.node-version`, the others are the lowest versions allowed by `engines.node`.
+        # 22.12.0 instead of 22.11.0 because vitest needs rolldown, which requires `^20.19.0 || >=22.12.0`
+        node-version: ['', '22.12.0', '24.10.0']
 
     steps:
       - name: ⚙️ Setup
