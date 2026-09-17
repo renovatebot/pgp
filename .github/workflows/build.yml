@@ -123,8 +123,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # empty string uses `.node-version`, the other is the lowest version allowed by `engines.node`
-        node-version: ['', '24.10.0']
+        # empty string uses `.node-version`, `24.10.0` is the lowest version allowed by `engines.node`,
+        # `26` is the next LTS
+        node-version: ['', '24.10.0', '26']
 
     steps:
       - name: ⚙️ Setup
