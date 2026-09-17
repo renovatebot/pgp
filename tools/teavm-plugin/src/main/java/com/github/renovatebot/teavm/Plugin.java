@@ -4,12 +4,16 @@ import org.teavm.vm.spi.TeaVMHost;
 import org.teavm.vm.spi.TeaVMPlugin;
 
 import com.github.renovatebot.teavm.transformer.CoreTransformer;
+import com.github.renovatebot.teavm.transformer.DestroyableTransformer;
+import com.github.renovatebot.teavm.transformer.PqcKeyUtilTransformer;
 import com.github.renovatebot.teavm.transformer.Slf4jLoggerFactoryTransformer;
 
 public final class Plugin implements TeaVMPlugin {
   @Override
   public void install(TeaVMHost host) {
     host.add(new CoreTransformer());
+    host.add(new DestroyableTransformer());
     host.add(new Slf4jLoggerFactoryTransformer());
+    host.add(new PqcKeyUtilTransformer());
   }
 }
