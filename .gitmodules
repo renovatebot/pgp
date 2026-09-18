@@ -1,0 +1,2 @@
+# Intentionally empty: Claude Code's sandbox mounts /dev/null over a missing
+# .gitmodules, which breaks SourceLink's git query during `dotnet publish`.
