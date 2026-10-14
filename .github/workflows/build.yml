@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@99277e09a125ec270a00ca46569ed2903478f3ef # v5.1.0
+        uses: containerbase/internal-tools/setup@67555b4b6a55b314657264b90d6d01116a4e7b2b # v5.1.1
         with:
           save-cache: true
 
@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@99277e09a125ec270a00ca46569ed2903478f3ef # v5.1.0
+        uses: containerbase/internal-tools/setup@67555b4b6a55b314657264b90d6d01116a4e7b2b # v5.1.1
 
       - name: lint
         run: |
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@99277e09a125ec270a00ca46569ed2903478f3ef # v5.1.0
+        uses: containerbase/internal-tools/setup@67555b4b6a55b314657264b90d6d01116a4e7b2b # v5.1.1
 
       - name: 📥 Setup Java
         uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
@@ -129,7 +129,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@99277e09a125ec270a00ca46569ed2903478f3ef # v5.1.0
+        uses: containerbase/internal-tools/setup@67555b4b6a55b314657264b90d6d01116a4e7b2b # v5.1.1
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -163,7 +163,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@99277e09a125ec270a00ca46569ed2903478f3ef # v5.1.0
+        uses: containerbase/internal-tools/setup@67555b4b6a55b314657264b90d6d01116a4e7b2b # v5.1.1
 
       - name: fetch dist
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
@@ -199,7 +199,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@99277e09a125ec270a00ca46569ed2903478f3ef # v5.1.0
+        uses: containerbase/internal-tools/setup@67555b4b6a55b314657264b90d6d01116a4e7b2b # v5.1.1
         with:
           checkout: false
 
