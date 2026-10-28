@@ -1,5 +1,5 @@
 {
-  "*.md": ["markdownlint-cli2 --fix", "prettier --write"],
-  "**/*.{ts,js,mjs,cjs}": ["prettier --write"],
-  "!*.{cjs,js,mjs,md,ts}": "prettier --ignore-unknown --write"
+  "*.md": ["markdownlint-cli2 --fix", "oxfmt"],
+  "**/*.{ts,js,mjs,cjs}": ["oxfmt"],
+  "!*.{cjs,js,mjs,md,ts}": "oxfmt --no-error-on-unmatched-pattern"
 }
