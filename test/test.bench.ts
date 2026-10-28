@@ -1,4 +1,4 @@
-import { beforeAll, bench, describe } from 'vitest';
+import { beforeAll, describe, test } from 'vitest';
 import { decrypt } from '../index.js';
 import { fixMessage, readFixture } from './util.js';
 import * as kbpgp from '@renovatebot/kbpgp';
@@ -24,71 +24,77 @@ describe('decrypt', () => {
     });
   });
 
-  bench('js-java', async () => {
-    await decrypt(key, msg, {
-      runtime: 'js-java',
-    });
-  });
+  test('runtimes', { timeout: 300_000 }, async ({ bench }) => {
+    await bench.compare(
+      bench('js-java', async () => {
+        await decrypt(key, msg, {
+          runtime: 'js-java',
+        });
+      }),
 
-  bench('wasm-java', async () => {
-    await decrypt(key, msg, {
-      runtime: 'wasm-java',
-    });
-  });
+      bench('wasm-java', async () => {
+        await decrypt(key, msg, {
+          runtime: 'wasm-java',
+        });
+      }),
 
-  bench('wasm-dotnet', async () => {
-    await decrypt(key, msg, {
-      runtime: 'wasm-dotnet',
-    });
-  });
+      bench('wasm-dotnet', async () => {
+        await decrypt(key, msg, {
+          runtime: 'wasm-dotnet',
+        });
+      }),
 
-  bench('kbpgp', async () => {
-    const pk = await new Promise<kbpgp.KeyManager>((resolve, reject) => {
-      kbpgp.KeyManager.import_from_armored_pgp(
-        {
-          armored: key,
-        },
-        (err: Error, pk) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(pk);
-          }
-        },
-      );
-    });
+      bench('kbpgp', async () => {
+        const pk = await new Promise<kbpgp.KeyManager>((resolve, reject) => {
+          kbpgp.KeyManager.import_from_armored_pgp(
+            {
+              armored: key,
+            },
+            (err: Error, pk) => {
+              if (err) {
+                reject(err);
+              } else {
+                resolve(pk);
+              }
+            },
+          );
+        });
 
-    const ring = new kbpgp.keyring.KeyRing();
-    ring.add_key_manager(pk);
+        const ring = new kbpgp.keyring.KeyRing();
+        ring.add_key_manager(pk);
 
-    await new Promise<kbpgp.Literal>((resolve, reject) => {
-      kbpgp.unbox(
-        {
-          keyfetch: ring,
-          armored: msg,
-        },
-        (err: Error, literals: any) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(literals[0].toString());
-          }
-        },
-      );
-    });
-  });
+        await new Promise<kbpgp.Literal>((resolve, reject) => {
+          kbpgp.unbox(
+            {
+              keyfetch: ring,
+              armored: msg,
+            },
+            (err: Error, literals: any) => {
+              if (err) {
+                reject(err);
+              } else {
+                resolve(literals[0].toString());
+              }
+            },
+          );
+        });
+      }),
 
-  bench('openpgp', async () => {
-    const pk = await openpgp.readPrivateKey({
-      armoredKey: key,
-    });
+      bench('openpgp', async () => {
+        const pk = await openpgp.readPrivateKey({
+          armoredKey: key,
+        });
 
-    const message = await openpgp.readMessage({
-      armoredMessage: msg,
-    });
-    await openpgp.decrypt({
-      message,
-      decryptionKeys: pk,
-    });
+        const message = await openpgp.readMessage({
+          armoredMessage: msg,
+        });
+        await openpgp.decrypt({
+          message,
+          decryptionKeys: pk,
+        });
+      }),
+      // keep the vitest v4 defaults, the java runtimes are slow
+      { iterations: 10, time: 500, warmupIterations: 5, warmupTime: 100 },
+    );
   });
 });
