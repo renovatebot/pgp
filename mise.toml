@@ -1,5 +1,5 @@
 [tools]
-node = "24.22.1"
+node = "24.22.2"
 pnpm = "10.34.7"
 java = "temurin-17.0.21+9"
 dotnet = "10.0.401"
