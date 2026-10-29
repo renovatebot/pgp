@@ -21,8 +21,4 @@ export function isSupportedRuntime(runtime: string): runtime is RuntimeType;
  * @param data encrypted data in base64 format
  * @param options runtime options
  */
-export async function decrypt(
-  key: string,
-  data: string,
-  options: DecryptOptions,
-): Promise<string>;
+export async function decrypt(key: string, data: string, options: DecryptOptions): Promise<string>;

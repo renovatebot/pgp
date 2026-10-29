@@ -11,9 +11,7 @@ describe('teavm/decrypt-wasm', async () => {
     const msg =
       'wcFMAw+4H7SgaqGOAQ//Yk4RTQoLEhO0TKxN2IUBrCi88ts+CG1SXKeL06sJ2qikN/3n2JYAGGKgkHRICfu5dOnsjyFdLJ1XWUrbsM3XgVWikMbrmzD1Xe7N5DsoZXlt4Wa9pZ+IkZuE6XcKKu9whIJ22ciEwCzFwDmk/CBshdCCVVQ3IYuM6uibEHn/AHQ8K15XhraiSzF6DbJpevs5Cy7b5YHFyE936H25CVnouUQnMPsirpQq3pYeMq/oOtV/m4mfRUUQ7MUxvtrwE4lq4hLjFu5n9rwlcqaFPl7I7BEM++1c9LFpYsP5mTS7hHCZ9wXBqER8fa3fKYx0bK1ihCpjP4zUkR7P/uhWDArXamv7gHX2Kj/Qsbegn7KjTdZlggAmaJl/CuSgCbhySy+E55g3Z1QFajiLRpQ5+RsWFDbbI08YEgzyQ0yNCaRvrkgo7kZ1D95rEGRfY96duOQbjzOEqtvYmFChdemZ2+f9Kh/JH1+X9ynxY/zYe/0p/U7WD3QNTYN18loc4aXiB1adXD5Ka2QfNroLudQBmLaJpJB6wASFfuxddsD5yRnO32NSdRaqIWC1x6ti3ZYJZ2RsNwJExPDzjpQTuMOH2jtpu3q7NHmW3snRKy2YAL2UjI0YdeKIlhc/qLCJt9MRcOxWYvujTMD/yGprhG44qf0jjMkJBu7NjuVIMONujabl9b7SUQGfO/t+3rMuC68bQdCGLlO8gf3hvtD99utzXphi6idjC0HKSW/9KzuMkm+syGmIAYq/0L3EFvpZ38uq7z8KzwFFQHI3sBA34bNEr5zpU5OMWg';
 
-    await expect(
-      async () => await decrypt(key, fixMessage(msg), { runtime: 'wasm-java' }),
-    ).rejects.toThrow('invalid armor');
+    await expect(async () => await decrypt(key, fixMessage(msg), { runtime: 'wasm-java' })).rejects.toThrow('invalid armor');
   });
 
   it('works', async () => {
@@ -54,8 +52,6 @@ describe('teavm/decrypt-wasm', async () => {
 
     // const decrypted = await decrypt(key, msg, { runtime: 'wasm-dotnet' });
     // expect(decrypted.trim()).toEqual('{"o":"abc","r":"","v":"123"}');
-    await expect(
-      async () => await decrypt(key, msg, { runtime: 'wasm-java' }),
-    ).rejects.toThrow('Cannot find secret key for message.');
+    await expect(async () => await decrypt(key, msg, { runtime: 'wasm-java' })).rejects.toThrow('Cannot find secret key for message.');
   }, 15000);
 });
