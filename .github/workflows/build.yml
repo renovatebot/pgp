@@ -6,6 +6,8 @@ on:
     branches:
       - main
       - maint/**
+      # renovate needs status checks before it creates PRs or automerges branches
+      - renovate/**
 
   workflow_dispatch:
     inputs:
