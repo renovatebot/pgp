@@ -13,9 +13,7 @@ export default defineConfig(() => {
       environment: 'node',
       // setupFiles: ['./Scripts/test-setup.ts'],
       include: ['test/**/*.spec.ts'],
-      reporters: ci
-        ? [['default', { summary: false }], 'github-actions', 'junit']
-        : ['default', 'junit'],
+      reporters: ci ? [['default', { summary: false }], 'github-actions', 'junit'] : ['default', 'junit'],
       outputFile: {
         junit: 'coverage/junit.xml',
       },
@@ -25,9 +23,7 @@ export default defineConfig(() => {
       coverage: {
         ignoreEmptyLines: true,
         provider: 'v8',
-        reporter: ci
-          ? ['text-summary', 'cobertura']
-          : ['text-summary', 'html', 'cobertura'],
+        reporter: ci ? ['text-summary', 'cobertura'] : ['text-summary', 'html', 'cobertura'],
         enabled: ci ? true : undefined,
         include: ['index.js'],
         watermarks: {

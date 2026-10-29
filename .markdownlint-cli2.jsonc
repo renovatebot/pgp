@@ -6,13 +6,5 @@
   },
 
   // Define glob expressions to ignore
-  "ignores": [
-    "**/__fixtures__/*",
-    "**/node_modules/**",
-    "tmp/**",
-    "**/.cache/**",
-    ".venv/**",
-    "dist/**",
-    "build/**",
-  ],
+  "ignores": ["**/__fixtures__/*", "**/node_modules/**", "tmp/**", "**/.cache/**", ".venv/**", "dist/**", "build/**"],
 }
