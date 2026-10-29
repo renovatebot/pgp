@@ -1,6 +1,6 @@
 [tools]
 dotnet = "10.0.401"
-jactionlint = "2.3.0"
+jactionlint = "2.4.0"
 java = "temurin-17.0.21+9"
 node = "24.22.2"
 pnpm = "10.34.7"
