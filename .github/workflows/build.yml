@@ -51,7 +51,7 @@ jobs:
       - name: lint
         run: |
           # pnpm eslint -f gha
-          pnpm prettier
+          pnpm oxfmt
           # pnpm lint:types
 
       - name: shellcheck
