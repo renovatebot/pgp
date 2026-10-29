@@ -1,6 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["local>renovatebot/.github//renovate-config.json"],
+  "prCreation": "immediate",
+  "automergeType": "pr",
   "postUpdateOptions": ["dotnetWorkloadRestore"],
   "packageRules": [
     {
