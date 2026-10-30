@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@containerbase/oxlint-plugin": "1.0.5",
-    "@containerbase/semantic-release-pnpm": "1.4.3",
+    "@containerbase/semantic-release-pnpm": "1.4.4",
     "@renovatebot/kbpgp": "4.0.4",
     "@types/node": "24.19.2",
     "@vitest/coverage-v8": "5.0.5",
