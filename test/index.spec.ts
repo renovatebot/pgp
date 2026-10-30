@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { decrypt, isSupportedRuntime, SupportedRuntimes } from '../index.js';
+import { SupportedRuntimes, decrypt, isSupportedRuntime } from '../index.js';
 
 describe('index', () => {
   it.each(SupportedRuntimes)('SupportedRuntimes are supported: %s', (runtime) => {

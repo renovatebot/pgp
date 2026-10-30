@@ -1,8 +1,8 @@
+import * as kbpgp from '@renovatebot/kbpgp';
+import * as openpgp from 'openpgp';
 import { beforeAll, describe, test } from 'vitest';
 import { decrypt } from '../index.js';
 import { fixMessage, readFixture } from './util.js';
-import * as kbpgp from '@renovatebot/kbpgp';
-import * as openpgp from 'openpgp';
 
 const key = await readFixture(`private-pgp.pem`);
 
@@ -63,13 +63,13 @@ describe('decrypt', () => {
         const ring = new kbpgp.keyring.KeyRing();
         ring.add_key_manager(pk);
 
-        await new Promise<kbpgp.Literal>((resolve, reject) => {
+        await new Promise<string>((resolve, reject) => {
           kbpgp.unbox(
             {
               keyfetch: ring,
               armored: msg,
             },
-            (err: Error, literals: any) => {
+            (err: Error, literals: kbpgp.Literal[]) => {
               if (err) {
                 reject(err);
               } else {

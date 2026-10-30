@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { fixMessage, readFixture } from '../util.js';
 import { decrypt } from '../../index.js';
+import { fixMessage, readFixture } from '../util.js';
 
-describe('teavm/decrypt-wasm', async () => {
+describe('teavm/decrypt-wasm', () => {
   // fails for unknown reason
   it('armor error', async () => {
     const key = await readFixture(`private-pgp.pem`);

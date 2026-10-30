@@ -1,5 +1,5 @@
-import { decrypt } from '../../index.js';
 import { describe, expect, it } from 'vitest';
+import { decrypt } from '../../index.js';
 import { fixMessage, readFixture } from '../util.js';
 
 describe('teavm/decrypt-js', () => {

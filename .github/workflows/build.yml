@@ -55,7 +55,7 @@ jobs:
 
       - name: lint
         run: |
-          # pnpm eslint -f gha
+          pnpm oxlint --format github
           pnpm oxfmt
           # pnpm lint:types
 
