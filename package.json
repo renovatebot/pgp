@@ -29,11 +29,14 @@
     "prepare": "husky",
     "oxfmt": "oxfmt --check",
     "oxfmt-fix": "oxfmt",
+    "oxlint": "oxlint",
+    "oxlint-fix": "oxlint --fix",
     "test": "vitest run",
     "test:teavm-wasm": "node test/teavm/wasm.js",
     "test:teavm-wasm:prof": "node --prof test/teavm/wasm.js"
   },
   "devDependencies": {
+    "@containerbase/oxlint-plugin": "1.0.5",
     "@containerbase/semantic-release-pnpm": "1.4.4",
     "@renovatebot/kbpgp": "4.0.4",
     "@types/node": "24.19.2",
@@ -45,6 +48,8 @@
     "npm-run-all2": "9.0.4",
     "openpgp": "6.3.2",
     "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
+    "oxlint-tsgolint": "7.0.2005",
     "semantic-release": "25.0.9",
     "typescript": "7.0.2",
     "vitest": "5.0.5"

@@ -1,6 +1,6 @@
 {
   "*.md": ["markdownlint-cli2 --fix", "oxfmt"],
-  "**/*.{ts,js,mjs,cjs}": ["oxfmt"],
+  "**/*.{ts,js,mjs,cjs}": ["oxlint --fix", "oxfmt"],
   ".github/workflows/*.{yml,yaml}": ["jactionlint", "zizmor --offline"],
   "!*.{cjs,js,mjs,md,ts}": "oxfmt --no-error-on-unmatched-pattern"
 }

@@ -1,6 +1,6 @@
 import { dotnet } from './_framework/dotnet.js';
 
-const { setModuleImports, getAssemblyExports, getConfig } = await dotnet.withDiagnosticTracing(false).create();
+const { getAssemblyExports, getConfig } = await dotnet.withDiagnosticTracing(false).create();
 
 // setModuleImports('main.mjs', {
 //     node: {

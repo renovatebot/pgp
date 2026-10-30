@@ -15,7 +15,7 @@ export async function decrypt(key, data, options) {
       return (await decryptJsJava).decrypt(key, data);
     case 'wasm-java':
       if (!decryptWasmJava) {
-        decryptWasmJava = import('./dist/teavm/lib.wasm-runtime.js').then(async ({ load }) =>
+        decryptWasmJava = import('./dist/teavm/lib.wasm-runtime.js').then(({ load }) =>
           load(`${import.meta.dirname}/dist/teavm/lib.wasm`).then((teavm) => teavm.exports),
         );
       }
