@@ -33,7 +33,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+        uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
         with:
           save-cache: true
 
@@ -51,7 +51,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+        uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
 
       - name: lint
         run: |
@@ -96,7 +96,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+        uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
 
       - name: 📥 Setup Java
         uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
@@ -147,7 +147,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+        uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -181,7 +181,7 @@ jobs:
 
     steps:
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+        uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
 
       - name: fetch dist
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
@@ -218,7 +218,7 @@ jobs:
           filter: blob:none # we don't need all blobs
 
       - name: ⚙️ Setup
-        uses: containerbase/internal-tools/setup@0180b2cc75e66c7043731f3c050c9e00bf47d030 # v5.4.10
+        uses: containerbase/internal-tools/setup@4a8902c7003ecc5932795ce08f6a8d00dd9e7382 # v5.4.11
         with:
           checkout: false
 
